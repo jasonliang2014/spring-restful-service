@@ -15,16 +15,18 @@ Logging<br />
 Integration using resource<br />
 
 
-##Develop and run using Eclipse
+##Build and Run Using Eclipse
 
 First run following commands in project folder
 
-mvn clean package<br />
+mvn eclipse:clean<br />
 mvn eclipse:eclipse<br />
 
 Then import maven project into Eclipse, publish to Tomcat server.
 
 The context path is TaxService by default.
+
+Note: Build path and deployment assembly created by running mvn eclipse:eclipse use absolute path to jar files. Check build path and deployment assembly properties and make necessary changes if there is any problem to run this example.
 
 ##Calculate Tax
 

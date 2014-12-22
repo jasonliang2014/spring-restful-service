@@ -5,7 +5,7 @@
 	<artifactId>TaxService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>spring-restful-tax-service</name>
+	<name>TaxService</name>
 	<description>Showcase Spring Web Service Best Practices</description>
 
 	<properties>
