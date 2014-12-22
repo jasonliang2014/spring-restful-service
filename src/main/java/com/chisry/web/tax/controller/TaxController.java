@@ -3,6 +3,7 @@ package com.chisry.web.tax.controller;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,10 @@ import com.chisry.web.tax.service.impl.TaxCalculator;
 public class TaxController {
     public static Logger logger = Logger.getLogger(TaxController.class);
 
+    @Autowired
+    private TaxCalculator taxCalculator;
+    
+    
     @RequestMapping(value = "/personaltax", method = RequestMethod.GET)
     @ResponseBody
     public PersonalTaxResponse calculatePersonalTax(@RequestParam(required = false) Map<String, String> params) {
@@ -31,9 +36,8 @@ public class TaxController {
             String province = params.get("province");
             String year = params.get("year");
             String income = params.get("income");
-            TaxCalculator tc = new TaxCalculator();
-            Double tax = tc.calculatePersonalIncomeTax(province, Integer.parseInt(year), Double.parseDouble(income));
-            PersonalTax pt = new PersonalTax(tax);
+            Double tax = taxCalculator.calculatePersonalIncomeTax(province, Integer.parseInt(year), Double.parseDouble(income));
+            PersonalTax pt = new PersonalTax(Math.round(tax * 100) / 100.00);
             response.setPersonalTax(pt);
         } catch (Exception ex) {
             logger.error(ex.getMessage());

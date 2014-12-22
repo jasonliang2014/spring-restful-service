@@ -9,7 +9,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = { "com.chisry.web.tax.controller" })
+@ComponentScan(basePackages = { "com.chisry.web.tax" })
 public class TaxServiceConfig extends WebMvcConfigurationSupport {
 
     @Bean
