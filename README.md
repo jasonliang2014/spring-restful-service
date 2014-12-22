@@ -28,7 +28,7 @@ The context path is TaxService by default.
 
 ##Calculate Tax
 
-URL: http://localhost:8080/TaxService/personaltax
+URL: http://localhost:8080/TaxService/personaltax<br />
 Parameters:<br />
 province - code of province<br />
 year - tax year<br />
